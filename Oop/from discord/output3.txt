@@ -1,0 +1,3 @@
+Account Number=100
+Account Title=Shihab
+Current Balance=7500.0

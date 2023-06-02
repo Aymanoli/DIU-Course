@@ -1,0 +1,6 @@
+Accounts [accNo=1001, title=jeba, balance=2000.0]Transaction [trId=1, purpose=joma , date=Sat May 27 09:27:40 BDT 2023, amount=1000.0, type=Deposit]
+Accounts 
+accNo=1001, title=jeba, balance=2000.0
+
+Transaction 
+trId=1, purpose=joma , date=Sat May 27 09:30:10 BDT 2023, amount=1000.0, type=Deposit

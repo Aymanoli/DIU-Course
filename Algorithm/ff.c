@@ -1,0 +1,49 @@
+#include <stdbool.h>
+#include <stdio.h>
+#include <string.h>
+
+#define MAX_NODES 200
+
+void BFS(char node, bool visited[], char adj[][MAX_NODES]) {
+    visited[node] = true;
+    int front = 0, rear = 0;
+    char queue[MAX_NODES];
+    queue[rear++] = node;
+    while (front != rear) {
+        char tmp_node = queue[front++];
+        if (tmp_node >= 'A' && tmp_node <= 'z')
+            printf("%c ", tmp_node);
+        for (int i = 0; adj[tmp_node][i] != '\0'; i++) {
+            char it = adj[tmp_node][i];
+            if (!visited[it]) {
+                visited[it] = true;
+                queue[rear++] = it;
+            }
+        }
+    }
+}
+
+int main() {
+    int node, edge;
+    printf("Enter the number of nodes: ");
+    scanf("%d", &node);
+    printf("Enter the number of edges: ");
+    scanf("%d", &edge);
+    bool visited[MAX_NODES] = {false};
+    char adj[MAX_NODES][MAX_NODES] = {};
+    getchar();
+    printf("Enter the edge: \n");
+    while (edge--) {
+        char x, y;
+        scanf("%c %c", &x, &y);
+        adj[x][strlen(adj[x])] = y;
+        adj[y][strlen(adj[y])] = x;
+        getchar();
+    }
+    printf("Starting node: ");
+    char start;
+    scanf("%c", &start);
+    BFS(start, visited, adj);
+    printf("\n");
+    return 0;
+}
